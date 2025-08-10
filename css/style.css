@@ -287,3 +287,95 @@
     margin: 0;
     font-size: 20px;
 }
+
+/* ===== Latest News Section ===== */
+.latest-news-section {
+    padding: 80px 0;
+    background-color: #f0f2f5; /* A light grey background */
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* The container for the news cards, using Flexbox */
+.news-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+    gap: 30px; /* Space between cards */
+    justify-content: center;
+}
+
+/* Styling for each individual news card */
+.news-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Ensures the image corners are also rounded */
+    display: flex;
+    flex-direction: column; /* Stacks image and body vertically */
+    width: calc(25% - 23px); /* 4 cards per row, accounting for gap */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.news-card-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    display: block;
+}
+
+.news-card-body {
+    padding: 20px;
+    flex-grow: 1; /* Allows the body to fill the remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+.news-date {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.news-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: auto; /* Pushes the title to the bottom if cards have different text lengths */
+}
+
+.news-title a {
+    text-decoration: none;
+    color: #004d40; /* COMSATS dark green */
+    transition: color 0.3s;
+}
+
+.news-title a:hover {
+    color: #007bff; /* A nice blue for hover */
+}
+
+/* Centered container for a "View More" button */
+.section-footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* --- Responsive adjustments for the news cards --- */
+@media (max-width: 1200px) {
+    .news-card {
+        /* 2 cards per row on tablets */
+        width: calc(50% - 15px);
+    }
+}
+
+@media (max-width: 768px) {
+    .news-card {
+        /* 1 card per row on mobile */
+        width: 100%;
+    }
+}
