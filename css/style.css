@@ -1,0 +1,147 @@
+/* Basic CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Main header container */
+.main-header {
+    background-color: #004d40;
+    padding: 10px 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* Prevents items from wrapping to the next line */
+}
+
+/* 1. Logo Styling (Updated) */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none; 
+    flex-shrink: 0; 
+}
+
+.logo-container img {
+    width: 100px;
+    height: auto;
+    display: block; 
+}
+
+/* Styling for the text next to the logo */
+.logo-container h5 {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.2; 
+}
+
+/* 2. Main Navigation Styling */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    white-space: nowrap; /* Keeps menu text on a single line */
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Rule to control the size of icons */
+.icon-buttons svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Directly sets the fill color for the icon paths */
+.icon-buttons svg path {
+    fill: black;
+}
+
+/* 3. Right side Icon Buttons Styling */
+.icon-buttons {
+    display: flex;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.icon-buttons a {
+    text-decoration: none;
+    color: black; 
+    background-color: #DAEFF0; 
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 14px;
+}
+
+/* ========================================= */
+/* RESPONSIVE STYLES START          */
+/* ========================================= */
+
+/* Hides the hamburger icon on desktop by default */
+.hamburger-icon {
+    display: none;
+    cursor: pointer;
+    color: white;
+}
+
+/* Media Query for tablet and mobile views */
+@media (max-width: 1200px) {
+    
+    /* 1. Show the hamburger icon */
+    .hamburger-icon {
+        display: block; 
+        position: relative;
+        z-index: 1001; /* Higher z-index to stay above the drawer */
+    }
+
+    /* 2. Hide the desktop icon buttons */
+    .icon-buttons {
+        display: none;
+    }
+
+    /* 3. Style the Main Nav as a drawer and place it behind the icon */
+    .main-nav {
+        position: fixed; 
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100vh; 
+        background-color: #004d40; 
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+        
+        /* Hides the drawer off-screen */
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out; 
+        z-index: 1000; /* Lower z-index to stay behind the icon */
+    }
+
+    /* This class is toggled by JS to show the drawer */
+    .main-nav.drawer-active {
+        transform: translateX(0);
+    }
+
+    /* 4. Style the menu list inside the drawer */
+    .main-nav ul {
+        flex-direction: column; 
+        padding: 60px 0 0 30px;
+        gap: 25px;
+        align-items: flex-start; 
+        width: 100%;
+    }
+
+    /* Font size for drawer menu links */
+    .main-nav ul li a {
+        font-size: 18px;
+    }
+}
+/* ========================================= */
+/* RESPONSIVE STYLES END            */
+/* ========================================= */
